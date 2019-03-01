@@ -64,5 +64,10 @@ namespace NPCGeneratorV2
                 }
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Random NPC generator\nVersion 2.0\nCreated by Ivan Cvetkovic and Milos Andric", "About");
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(564, 701);
             this.Controls.Add(this.npcTabs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NPCList";
             this.Text = "NPC List";
