@@ -180,6 +180,10 @@ namespace NPCGeneratorV2
                         {
                             Inventory.Add(inv1, rnd.Next(int.Parse(inv2), int.Parse(inv3)));
                         }
+                        else
+                        {
+                            j--;
+                        }
                     }
                 }
             }
