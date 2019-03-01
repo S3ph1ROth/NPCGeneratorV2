@@ -14,10 +14,12 @@ namespace NPCGeneratorV2
 {
     public partial class NPCTab : TabPage
     {
-        public NPCTab()
+
+        public NPCTab(string Path)
         {
             InitializeComponent();
-            NPC npc = new NPC();
+
+            NPC npc = new NPC(Path);
 
             firstName.Text = npc.FirstName;
             lastName.Text = npc.LastName;
@@ -52,6 +54,7 @@ namespace NPCGeneratorV2
             Text = npc.FirstName + " " + npc.LastName;
 
         }
+
         private void save_Click(object sender, EventArgs e, NPC npc)
         {
             List<string> info = new List<string>();
