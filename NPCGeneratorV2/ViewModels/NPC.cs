@@ -166,17 +166,19 @@ namespace NPCGeneratorV2
 
                 for (int j = row_min; j < row_max; j++)
                 {
-                    string[] inv = _inventory[rnd.Next(0, _inventory.Length)].Split('\t');
+                    string inv1 = Regex.Match(_inventory[rnd.Next(0, _inventory.Length)], @"(.+)\t? ?(\d+)\t? ?(\d+)").Groups[1].Value;
+                    string inv2 = Regex.Match(_inventory[rnd.Next(0, _inventory.Length)], @"(.+)\t? ?(\d+)\t? ?(\d+)").Groups[2].Value;
+                    string inv3 = Regex.Match(_inventory[rnd.Next(0, _inventory.Length)], @"(.+)\t? ?(\d+)\t? ?(\d+)").Groups[3].Value;
 
                     if (j == row_min)
                     {
-                        Inventory.Add(inv[0], rnd.Next(int.Parse(inv[1]), int.Parse(inv[2])));
+                        Inventory.Add(inv1, rnd.Next(int.Parse(inv2), int.Parse(inv3)));
                     }
                     else
                     {
-                        if (!inventory.ContainsKey(inv[0]))
+                        if (!inventory.ContainsKey(inv1))
                         {
-                            Inventory.Add(inv[0], rnd.Next(int.Parse(inv[1]), int.Parse(inv[2])));
+                            Inventory.Add(inv1, rnd.Next(int.Parse(inv2), int.Parse(inv3)));
                         }
                     }
                 }

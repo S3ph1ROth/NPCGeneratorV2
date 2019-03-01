@@ -34,6 +34,7 @@ namespace NPCGeneratorV2
         private void loadPresetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fld = new FolderBrowserDialog();
+            fld.SelectedPath = Environment.CurrentDirectory;
             
             if (fld.ShowDialog() == DialogResult.OK)
             {
