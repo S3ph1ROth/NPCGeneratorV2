@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPCList));
             this.npcTabs = new System.Windows.Forms.TabControl();
+            this.addNPC = new System.Windows.Forms.TabPage();
+            this.npcTabs.SuspendLayout();
             this.SuspendLayout();
             // 
             // npcTabs
             // 
+            this.npcTabs.Controls.Add(this.addNPC);
             this.npcTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.npcTabs.Location = new System.Drawing.Point(0, 0);
             this.npcTabs.Margin = new System.Windows.Forms.Padding(0);
@@ -41,6 +44,17 @@
             this.npcTabs.SelectedIndex = 0;
             this.npcTabs.Size = new System.Drawing.Size(564, 701);
             this.npcTabs.TabIndex = 0;
+            this.npcTabs.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.npcTabs_Selecting);
+            this.npcTabs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.npcTabs_MouseClick);
+            // 
+            // addNPC
+            // 
+            this.addNPC.Location = new System.Drawing.Point(4, 22);
+            this.addNPC.Name = "addNPC";
+            this.addNPC.Size = new System.Drawing.Size(556, 675);
+            this.addNPC.TabIndex = 0;
+            this.addNPC.Text = "Add NPC";
+            this.addNPC.UseVisualStyleBackColor = true;
             // 
             // NPCList
             // 
@@ -54,6 +68,7 @@
             this.Name = "NPCList";
             this.Text = "NPC List";
             this.Load += new System.EventHandler(this.NPCList_Load);
+            this.npcTabs.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -61,5 +76,6 @@
         #endregion
 
         private System.Windows.Forms.TabControl npcTabs;
+        private System.Windows.Forms.TabPage addNPC;
     }
 }

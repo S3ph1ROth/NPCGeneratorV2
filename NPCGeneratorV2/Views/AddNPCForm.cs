@@ -1,5 +1,4 @@
-﻿using NPCGeneratorV2.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,42 +9,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NPCGeneratorV2
+namespace NPCGeneratorV2.Views
 {
-    public partial class MainWindow : Form
+    public partial class AddNPCForm : Form
     {
-
         public string path = Environment.CurrentDirectory + "\\Presets\\Default\\";
+        public List<NPCTab> tabs = new List<NPCTab>();
+        public LoadNPC load;
 
-        public MainWindow()
+        public AddNPCForm()
         {
             InitializeComponent();
             path = Environment.CurrentDirectory + "\\Presets\\Default\\";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            NPCList npcList = new NPCList();
-            npcList.Path = path;
-            npcList.N = int.TryParse(textBox1.Text, out int result) ? result : 1;
-            npcList.Show();
         }
 
         private void loadPresetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fld = new FolderBrowserDialog();
             fld.SelectedPath = Environment.CurrentDirectory + "\\Presets\\";
-            
+
             if (fld.ShowDialog() == DialogResult.OK)
             {
                 path = fld.SelectedPath + "\\";
             }
         }
 
+        private void generate_Click(object sender, EventArgs e)
+        {
+            var n = int.TryParse(npcNum.Text, out int result) ? result : 1;
+            for (int i = 0; i < n; i++)
+            {
+                var tab = new NPCTab(path);
+                tabs.Add(tab);
+            }
+            DialogResult = DialogResult.OK;
+        }
+
         private void loadNPCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog fd = new OpenFileDialog()) {
-                NPCList npc = new NPCList();
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
                 fd.InitialDirectory = Environment.CurrentDirectory;
                 fd.Filter = "npc files (*.npc)|*.npc";
                 fd.RestoreDirectory = true;
@@ -58,16 +61,10 @@ namespace NPCGeneratorV2
                     {
                         fileContent = reader.ReadToEnd();
                     }
-                    npc = new NPCList();
-                    npc.FileContent = fileContent;
-                    npc.Show();
+                    load = new LoadNPC(fileContent);
                 }
             }
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Random NPC generator\nVersion 2.0\nCreated by Ivan Cvetkovic and Milos Andric", "About");
+            DialogResult = DialogResult.OK;
         }
     }
 }

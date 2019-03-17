@@ -68,35 +68,35 @@ namespace NPCGeneratorV2
                 info.Add(key + " " + npc.Attributes[key]);
             }
             info.Add("\r\n");
-            info.Add("Armor 1: " + npc.Armor1 + "\r");
-            info.Add("Armor 1 reduce damage: " + npc.Armor1RDmg + "\r");
-            info.Add("Armor 1 mod: " + (armor1Mod.Text == null ? "" : armor1Mod.Text) + "\r");
-            info.Add("Armor 1 armor 1: " + (armor1Armor1.Text == null ? "" : armor1Mod.Text) + "\r");
-            info.Add("Armor 1 armor 2: " + npc.Armor1Armor2 + "\r\n");
+            info.Add("Armor 1: " + npc.Armor1);
+            info.Add("Armor 1 reduce damage: " + npc.Armor1RDmg);
+            info.Add("Armor 1 mod: " + (armor1Mod.Text == null ? "" : armor1Mod.Text));
+            info.Add("Armor 1 armor 1: " + (armor1Armor1.Text == null ? "" : armor1Mod.Text));
+            info.Add("Armor 1 armor 2: " + npc.Armor1Armor2 + "\r");
 
-            info.Add("Armor 2: " + npc.Armor2 + "\r");
-            info.Add("Armor 2 reduce damage: " + npc.Armor2RDmg + "\r");
-            info.Add("Armor 2 mod: " + (armor2Mod.Text == null ? "" : armor2Mod.Text) + "\r");
-            info.Add("Armor 2 armor 1: " + (armor2Armor1.Text == null ? "" : armor2Mod.Text) + "\r");
-            info.Add("Armor 2 armor 2: " + npc.Armor2Armor2 + "\r\n");
+            info.Add("Armor 2: " + npc.Armor2);
+            info.Add("Armor 2 reduce damage: " + npc.Armor2RDmg);
+            info.Add("Armor 2 mod: " + (armor2Mod.Text == null ? "" : armor2Mod.Text));
+            info.Add("Armor 2 armor 1: " + (armor2Armor1.Text == null ? "" : armor2Mod.Text));
+            info.Add("Armor 2 armor 2: " + npc.Armor2Armor2 + "\r");
 
-            info.Add("Weapon 1: " + npc.Weapon1 + "\r");
-            info.Add("Weapon 1 damage: " + npc.Weapon1Dmg + "\r");
-            info.Add("Weapon 1 mod: " + (weapon1Mod.Text == null ? "" : weapon1Mod.Text) + "\r");
-            info.Add("Weapon 1 ammo 1: " + (weapon1Ammo1.Text == null ? "" : weapon1Ammo1.Text) + "\r");
-            info.Add("Weapon 1 ammo 2: " + (weapon1Ammo2.Text == null ? "" : weapon1Ammo2.Text) + "\r\n");
+            info.Add("Weapon 1: " + npc.Weapon1);
+            info.Add("Weapon 1 damage: " + npc.Weapon1Dmg);
+            info.Add("Weapon 1 mod: " + (weapon1Mod.Text == null ? "" : weapon1Mod.Text));
+            info.Add("Weapon 1 ammo 1: " + (weapon1Ammo1.Text == null ? "" : weapon1Ammo1.Text));
+            info.Add("Weapon 1 ammo 2: " + (weapon1Ammo2.Text == null ? "" : weapon1Ammo2.Text) + '\r');
 
-            info.Add("Weapon 2: " + npc.Weapon2 + "\r");
-            info.Add("Weapon 2 damage: " + npc.Weapon2Dmg + "\r");
-            info.Add("Weapon 2 mod: " + (weapon2Mod.Text == null ? "" : weapon1Mod.Text) + "\r");
-            info.Add("Weapon 2 ammo 1: " + (weapon2Ammo1.Text == null ? "" : weapon2Ammo1.Text) + "\r");
-            info.Add("Weapon 2 ammo 2: " + (weapon2Ammo2.Text == null ? "" : weapon2Ammo2.Text) + "\r\n");
+            info.Add("Weapon 2: " + npc.Weapon2);
+            info.Add("Weapon 2 damage: " + npc.Weapon2Dmg);
+            info.Add("Weapon 2 mod: " + (weapon2Mod.Text == null ? "" : weapon1Mod.Text));
+            info.Add("Weapon 2 ammo 1: " + (weapon2Ammo1.Text == null ? "" : weapon2Ammo1.Text));
+            info.Add("Weapon 2 ammo 2: " + (weapon2Ammo2.Text == null ? "" : weapon2Ammo2.Text) + '\r');
 
-            info.Add("Weapon mod: " + npc.WeaponMod + "\r");
-            info.Add("Weapon mod 1: " + npc.Weapon3Mod1 + "\r");
-            info.Add("Weapon mod 2: " + (weapon3Mod2.Text == null ? "" : weapon3Mod2.Text) + "\r");
-            info.Add("Weapon mod 3: " + (weapon3Mod3.Text == null ? "" : weapon3Mod3.Text) + "\r");
-            info.Add("Weapon mod 4: " + (weapon3Mod4.Text == null ? "" : weapon3Mod4.Text) + "\r\n");
+            info.Add("Weapon mod: " + npc.WeaponMod);
+            info.Add("Weapon mod 1: " + npc.Weapon3Mod1);
+            info.Add("Weapon mod 2: " + (weapon3Mod2.Text == null ? "" : weapon3Mod2.Text));
+            info.Add("Weapon mod 3: " + (weapon3Mod3.Text == null ? "" : weapon3Mod3.Text));
+            info.Add("Weapon mod 4: " + (weapon3Mod4.Text == null ? "" : weapon3Mod4.Text) + "\r");
 
             info.Add("Inventory:\r");
             foreach (string key in npc.Inventory.Keys)
@@ -108,10 +108,10 @@ namespace NPCGeneratorV2
             info.Add("Description:\r");
             foreach (string line in npc.Description.Split('\r'))
             {
-                info.Add(line + "\n");
+                info.Add(line);
             }
 
-            File.WriteAllLines(Environment.CurrentDirectory + "\\SavedNPCs\\" + firstName.Text + " " + lastName.Text + ".txt", info);
+            File.WriteAllLines(Environment.CurrentDirectory + "\\SavedNPCs\\" + firstName.Text + " " + lastName.Text + ".npc", info);
 
         }
     }

@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace NPCGeneratorV2.Views
 {
-    public partial class LoadNPC : Form
+    public partial class LoadNPC : TabPage
     {
         public LoadNPC(string info)
         {
             InitializeComponent();
+
             firstName.Text = Regex.Match(info, @"First name: (.*)").Groups[1].Value.Trim();
             lastName.Text = Regex.Match(info, @"Last name: (.*)").Groups[1].Value.Trim();
             nickname.Text = Regex.Match(info, @"Nickname: (.*)").Groups[1].Value.Trim();
+            occupation.Text = Regex.Match(info, @"Occupation: (.*)").Groups[1].Value.Trim();
 
             armor1.Text = Regex.Match(info, @"Armor 1: (.*)").Groups[1].Value.Trim();
             armor1Armor1.Text = Regex.Match(info, @"Armor 1 armor 1: (.*)").Groups[1].Value.Trim();
@@ -45,14 +47,14 @@ namespace NPCGeneratorV2.Views
             weapon2Mod.Text = Regex.Match(info, @"Weapon 2 mod: (.*)").Groups[1].Value.Trim();
 
             weaponMod.Text = Regex.Match(info, @"Weapon mod: (.*)").Groups[1].Value.Trim();
-            weapon3Mod1.Text = Regex.Match(info, @"Weapon Mod 1: (.*)").Groups[1].Value.Trim();
-            weapon3Mod2.Text = Regex.Match(info, @"Weapon Mod 2: (.*)").Groups[1].Value.Trim();
-            weapon3Mod3.Text = Regex.Match(info, @"Weapon Mod 3:  (.*)").Groups[1].Value.Trim();
-            weapon3Mod4.Text = Regex.Match(info, @"Weapon Mod 4: (.*)").Groups[1].Value.Trim();
+            weapon3Mod1.Text = Regex.Match(info, @"Weapon mod 1: (.*)").Groups[1].Value.Trim();
+            weapon3Mod2.Text = Regex.Match(info, @"Weapon mod 2: (.*)").Groups[1].Value.Trim();
+            weapon3Mod3.Text = Regex.Match(info, @"Weapon mod 3:  (.*)").Groups[1].Value.Trim();
+            weapon3Mod4.Text = Regex.Match(info, @"Weapon mod 4: (.*)").Groups[1].Value.Trim();
 
             Dictionary<string, string> _attributes = new Dictionary<string, string>();
             Dictionary<string, string> _inventory = new Dictionary<string, string>();
-            
+
 
             string[] parse = info.Split('\r');
 
@@ -77,14 +79,14 @@ namespace NPCGeneratorV2.Views
                         {
                             string inv1 = Regex.Match(parse[j], @"(.+) (\d+)").Groups[1].Value;
                             string inv2 = Regex.Match(parse[j], @"(.+) (\d+)").Groups[2].Value;
-                            if(inv1 != "" && inv2 !="")
+                            if (inv1 != "" && inv2 != "")
                                 _inventory.Add(inv1, inv2);
                         }
                     }
                 }
                 else if (parse[i].Contains("Description"))
                 {
-                    for (int j = i + 1; j<parse.Length; j++)
+                    for (int j = i + 1; j < parse.Length; j++)
                     {
                         if (string.Compare(parse[j], "\n") != 0 || string.Compare(parse[j], "\r") != 0)
                         {
@@ -105,6 +107,8 @@ namespace NPCGeneratorV2.Views
             }
             description.Text.TrimStart();
             description.Text.TrimEnd();
+
+            Text = firstName.Text + " " + lastName.Text;
         }
     }
 }

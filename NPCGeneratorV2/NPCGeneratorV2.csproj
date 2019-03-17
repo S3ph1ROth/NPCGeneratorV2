@@ -46,8 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\LoadNPC.cs">
+    <Compile Include="Views\AddNPCForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNPCForm.Designer.cs">
+      <DependentUpon>AddNPCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadNPC.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\LoadNPC.Designer.cs">
       <DependentUpon>LoadNPC.cs</DependentUpon>
@@ -73,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\AddNPCForm.resx">
+      <DependentUpon>AddNPCForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoadNPC.resx">
       <DependentUpon>LoadNPC.cs</DependentUpon>
     </EmbeddedResource>

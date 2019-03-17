@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPCGeneratorV2.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,27 +16,72 @@ namespace NPCGeneratorV2
     {
         private int n;
         private string path;
+        private string fileContent;
 
         public NPCList()
         {
             InitializeComponent();
-            
+
         }
 
         public string Path { get => path; set => path = value; }
         public int N { get => n; set => n = value; }
+        public string FileContent { get => fileContent; set => fileContent = value; }
 
         private void NPCList_Load(object sender, EventArgs e)
         {
-            var tabList = new List<NPCTab>();
-            for (int i = 0; i < N; i++)
+            if (FileContent == null)
             {
-                NPCTab tab = new NPCTab(Path);
-                tabList.Add(tab);
+                var tabList = new List<NPCTab>();
+                for (int i = 0; i < N; i++)
+                {
+                    NPCTab tab = new NPCTab(Path);
+                    npcTabs.TabPages.Insert(i, tab);
 
+                }
+                npcTabs.SelectedIndex = 0;
             }
-
-            npcTabs.TabPages.AddRange(tabList.ToArray());
+            else
+            {
+                var tab = new LoadNPC(FileContent);
+                npcTabs.TabPages.Insert(npcTabs.TabCount - 1, tab);
+                npcTabs.SelectedIndex = 0;
+            }
         }
+
+        private void npcTabs_MouseClick(object sender, MouseEventArgs e)
+        {
+            var lastIndex = this.npcTabs.TabCount - 1;
+            if (npcTabs.GetTabRect(lastIndex).Contains(e.Location))
+            {
+                using (AddNPCForm add = new AddNPCForm())
+                {
+                    if (add.ShowDialog() == DialogResult.OK)
+                    {
+                        var tabs = add.tabs;
+                        var load = add.load;
+                        if (load == null)
+                        {
+                            var index = npcTabs.TabCount - 1;
+                            foreach (var npc in tabs)
+                            {
+                                npcTabs.TabPages.Insert(index, npc);
+                            }
+                        }
+                        else
+                        {
+                            npcTabs.TabPages.Insert(npcTabs.TabCount - 1, load);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void npcTabs_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPageIndex == npcTabs.TabCount - 1)
+                e.Cancel = true;
+        }
+
     }
 }
