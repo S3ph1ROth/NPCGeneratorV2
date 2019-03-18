@@ -17,11 +17,19 @@ namespace NPCGeneratorV2
         private int n;
         private string path;
         private string fileContent;
+        public bool bulkLoad = false;
+        public List<LoadNPC> bulkLoadList = new List<LoadNPC>();
+        public List<NPCTab> saveNPCGen = new List<NPCTab>();
+        public List<LoadNPC> saveNPCLoad = new List<LoadNPC>();
 
         public NPCList()
         {
             InitializeComponent();
+        }
 
+        public void bulkLoadNPC(string content)
+        {
+            bulkLoadList.Add(new LoadNPC(content));
         }
 
         public string Path { get => path; set => path = value; }
@@ -30,21 +38,31 @@ namespace NPCGeneratorV2
 
         private void NPCList_Load(object sender, EventArgs e)
         {
-            if (FileContent == null)
+
+            if (FileContent == null && bulkLoad == false)
             {
-                var tabList = new List<NPCTab>();
                 for (int i = 0; i < N; i++)
                 {
                     NPCTab tab = new NPCTab(Path);
                     npcTabs.TabPages.Insert(i, tab);
-
+                    saveNPCGen.Add(tab);
                 }
                 npcTabs.SelectedIndex = 0;
             }
-            else
+            else if (bulkLoad == false && FileContent != null)
             {
                 var tab = new LoadNPC(FileContent);
                 npcTabs.TabPages.Insert(npcTabs.TabCount - 1, tab);
+                npcTabs.SelectedIndex = 0;
+                saveNPCLoad.Add(tab);
+            }
+            else
+            {
+                foreach(var npc in bulkLoadList)
+                {
+                    npcTabs.TabPages.Insert(npcTabs.TabCount - 1, npc);
+                    saveNPCLoad.Add(npc);
+                }
                 npcTabs.SelectedIndex = 0;
             }
         }
@@ -66,11 +84,17 @@ namespace NPCGeneratorV2
                             foreach (var npc in tabs)
                             {
                                 npcTabs.TabPages.Insert(index, npc);
+                                saveNPCGen.Add(npc);
                             }
                         }
                         else
                         {
-                            npcTabs.TabPages.Insert(npcTabs.TabCount - 1, load);
+                            foreach (var npc in load)
+                            {
+                                npcTabs.TabPages.Insert(npcTabs.TabCount - 1, npc);
+                                saveNPCLoad.Add(npc);
+                            }
+                            
                         }
                     }
                 }
@@ -83,5 +107,22 @@ namespace NPCGeneratorV2
                 e.Cancel = true;
         }
 
+        private void saveAllNPCSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fld = new FolderBrowserDialog();
+            fld.SelectedPath = Environment.CurrentDirectory + "\\SavedNPCs\\";
+            if (fld.ShowDialog() == DialogResult.OK)
+            {
+                string selectedPath = fld.SelectedPath;
+                foreach (NPCTab tab in saveNPCGen)
+                {
+                    tab.saveAll(selectedPath);
+                }
+                foreach (LoadNPC tab in saveNPCLoad)
+                {
+                    tab.saveAll(selectedPath);
+                }
+            }
+        }
     }
 }

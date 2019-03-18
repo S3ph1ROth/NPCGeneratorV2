@@ -99,7 +99,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.saveAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributes)).BeginInit();
             this.SuspendLayout();
@@ -747,20 +746,10 @@
             this.label1.TabIndex = 156;
             this.label1.Text = "First Name";
             // 
-            // saveAll
-            // 
-            this.saveAll.Location = new System.Drawing.Point(82, 646);
-            this.saveAll.Name = "saveAll";
-            this.saveAll.Size = new System.Drawing.Size(75, 23);
-            this.saveAll.TabIndex = 222;
-            this.saveAll.Text = "Save All";
-            this.saveAll.UseVisualStyleBackColor = true;
-            // 
             // LoadNPC
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.saveAll);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.attributes);
@@ -827,7 +816,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.firstName);
             this.Controls.Add(this.label1);
-            this.Name = "LoadNPC";
             this.Size = new System.Drawing.Size(573, 677);
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributes)).EndInit();
@@ -908,6 +896,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox firstName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button saveAll;
     }
 }

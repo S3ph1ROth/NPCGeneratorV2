@@ -106,8 +106,8 @@ namespace NPCGeneratorV2
             {
                 string[] _armors1 = File.ReadAllLines(path + "Armor 1.txt");
                 Armor1 = _armors1[rnd.Next(0, _armors1.Length)];
-                Armor1RDmg = Regex.Match(Armor1, @"([\-+] ?[0-9]* ?(?i)Shift)").Groups[1].Value;
-                Armor1Armor2 = Regex.Match(Armor1, @"([0-9]+/[0-9]+)").Groups[1].Value;
+                Armor1RDmg = Regex.Match(Armor1, @"\((.*)\)").Groups[1].Value;
+                Armor1Armor2 = Regex.Match(Armor1, @"\[(.*)\]").Groups[1].Value;
             }
             catch (Exception e)
             {
@@ -117,8 +117,8 @@ namespace NPCGeneratorV2
             {
                 string[] _armors2 = File.ReadAllLines(path + "Armor 2.txt");
                 Armor2 = _armors2[rnd.Next(0, _armors2.Length)];
-                Armor2RDmg = Regex.Match(Armor2, @"([\-+] ?[0-9]* ?(?i)Shift)").Groups[1].Value;
-                Armor2Armor2 = Regex.Match(Armor2, @"([0-9]+/[0-9]+)").Groups[1].Value;
+                Armor2RDmg = Regex.Match(Armor2, @"\((.*)\)").Groups[1].Value;
+                Armor2Armor2 = Regex.Match(Armor2, @"\[(.*)\]").Groups[1].Value;
             }
             catch (Exception e)
             {
@@ -128,7 +128,7 @@ namespace NPCGeneratorV2
             {
                 string[] _weapons1 = File.ReadAllLines(path + "Weapon 1.txt");
                 Weapon1 = _weapons1[rnd.Next(0, _weapons1.Length)];
-                Weapon1Dmg = Regex.Match(Weapon1, @"([\-+] ?[0-9]* ?(?i)Shift)").Groups[1].Value;
+                Weapon1Dmg = Regex.Match(Weapon1, @"\((.*)\)").Groups[1].Value;
             }
             catch (Exception e)
             {
@@ -138,7 +138,7 @@ namespace NPCGeneratorV2
             {
                 string[] _weapons2 = File.ReadAllLines(path + "Weapon 2.txt");
                 Weapon2 = _weapons2[rnd.Next(0, _weapons2.Length)];
-                Weapon2Dmg = Regex.Match(Weapon2, @"([\-+] ?[0-9]* ?(?i)Shift|[\-+] ?[0-9]* ?(?i)Shoot)").Groups[1].Value;
+                Weapon2Dmg = Regex.Match(Weapon2, @"\((.*)\)").Groups[1].Value;
             }
             catch (Exception e)
             {
@@ -148,7 +148,7 @@ namespace NPCGeneratorV2
             {
                 string[] _weapons3 = File.ReadAllLines(path + "Weapon Addons.txt");
                 WeaponMod = _weapons3[rnd.Next(0, _weapons3.Length)];
-                Weapon3Mod1 = Regex.Match(WeaponMod, @"([\-+] ?[0-9]* ?(?i)Shift|[\-+] ?[0-9 ]* ?(?i)Shoot)").Groups[1].Value;
+                Weapon3Mod1 = Regex.Match(WeaponMod, @"\((.*)\)").Groups[1].Value;
             }
             catch (Exception e)
             {

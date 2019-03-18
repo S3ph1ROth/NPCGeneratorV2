@@ -14,12 +14,12 @@ namespace NPCGeneratorV2
 {
     public partial class NPCTab : TabPage
     {
-
+        public NPC npc;
         public NPCTab(string Path)
         {
             InitializeComponent();
 
-            NPC npc = new NPC(Path);
+            npc = new NPC(Path);
 
             firstName.Text = npc.FirstName;
             lastName.Text = npc.LastName;
@@ -47,7 +47,7 @@ namespace NPCGeneratorV2
             {
                 inventory.Rows.Add(key, npc.Inventory[key]);
             }
-            attributes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            inventory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             inventory.Sort(inventory.Columns["Item"], ListSortDirection.Ascending);
             description.Text = npc.Description;
             save.Click += (s, EventArgs) => { save_Click(s, EventArgs, npc); };
@@ -59,7 +59,75 @@ namespace NPCGeneratorV2
         {
             List<string> info = new List<string>();
             info.Add("First name: " + npc.FirstName + "\r\n");
-            info.Add("Last name: " + npc.LastName+ "\r\n");
+            info.Add("Last name: " + npc.LastName + "\r\n");
+            info.Add("Nickname: " + npc.Nickname + "\r\n");
+            info.Add("Occupation: " + npc.Occupation + "\r\n");
+            info.Add("Attributes:\r");
+            foreach (string key in npc.Attributes.Keys)
+            {
+                info.Add(key + " " + npc.Attributes[key]);
+            }
+            info.Add("\r\n");
+            info.Add("Armor 1: " + npc.Armor1);
+            info.Add("Armor 1 reduce damage: " + npc.Armor1RDmg);
+            info.Add("Armor 1 mod: " + (armor1Mod.Text == null ? "" : armor1Mod.Text));
+            info.Add("Armor 1 armor 1: " + (armor1Armor1.Text == null ? "" : armor1Mod.Text));
+            info.Add("Armor 1 armor 2: " + npc.Armor1Armor2 + "\r");
+
+            info.Add("Armor 2: " + npc.Armor2);
+            info.Add("Armor 2 reduce damage: " + npc.Armor2RDmg);
+            info.Add("Armor 2 mod: " + (armor2Mod.Text == null ? "" : armor2Mod.Text));
+            info.Add("Armor 2 armor 1: " + (armor2Armor1.Text == null ? "" : armor2Mod.Text));
+            info.Add("Armor 2 armor 2: " + npc.Armor2Armor2 + "\r");
+
+            info.Add("Weapon 1: " + npc.Weapon1);
+            info.Add("Weapon 1 damage: " + npc.Weapon1Dmg);
+            info.Add("Weapon 1 mod: " + (weapon1Mod.Text == null ? "" : weapon1Mod.Text));
+            info.Add("Weapon 1 ammo 1: " + (weapon1Ammo1.Text == null ? "" : weapon1Ammo1.Text));
+            info.Add("Weapon 1 ammo 2: " + (weapon1Ammo2.Text == null ? "" : weapon1Ammo2.Text) + '\r');
+
+            info.Add("Weapon 2: " + npc.Weapon2);
+            info.Add("Weapon 2 damage: " + npc.Weapon2Dmg);
+            info.Add("Weapon 2 mod: " + (weapon2Mod.Text == null ? "" : weapon1Mod.Text));
+            info.Add("Weapon 2 ammo 1: " + (weapon2Ammo1.Text == null ? "" : weapon2Ammo1.Text));
+            info.Add("Weapon 2 ammo 2: " + (weapon2Ammo2.Text == null ? "" : weapon2Ammo2.Text) + '\r');
+
+            info.Add("Weapon mod: " + npc.WeaponMod);
+            info.Add("Weapon mod 1: " + npc.Weapon3Mod1);
+            info.Add("Weapon mod 2: " + (weapon3Mod2.Text == null ? "" : weapon3Mod2.Text));
+            info.Add("Weapon mod 3: " + (weapon3Mod3.Text == null ? "" : weapon3Mod3.Text));
+            info.Add("Weapon mod 4: " + (weapon3Mod4.Text == null ? "" : weapon3Mod4.Text) + "\r");
+
+            info.Add("Inventory:\r");
+            foreach (string key in npc.Inventory.Keys)
+            {
+                info.Add(key + " " + npc.Inventory[key]);
+            }
+            info.Add("\r\n");
+
+            info.Add("Description:\r");
+            foreach (string line in npc.Description.Split('\r'))
+            {
+                info.Add(line);
+            }
+            using (SaveFileDialog fd = new SaveFileDialog())
+            {
+                fd.InitialDirectory = Environment.CurrentDirectory + "\\SavedNPCs\\";
+                fd.Filter = "npc files (*.npc)|*.npc";
+                fd.Title = "Save NPC";
+                fd.RestoreDirectory = true;
+                fd.FileName = npc.FirstName + " " + npc.LastName;
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllLines(fd.FileName, info);
+                }
+            }
+        }
+        public void saveAll(string path)
+        {
+            List<string> info = new List<string>();
+            info.Add("First name: " + npc.FirstName + "\r\n");
+            info.Add("Last name: " + npc.LastName + "\r\n");
             info.Add("Nickname: " + npc.Nickname + "\r\n");
             info.Add("Occupation: " + npc.Occupation + "\r\n");
             info.Add("Attributes:\r");
@@ -111,8 +179,7 @@ namespace NPCGeneratorV2
                 info.Add(line);
             }
 
-            File.WriteAllLines(Environment.CurrentDirectory + "\\SavedNPCs\\" + firstName.Text + " " + lastName.Text + ".npc", info);
-
+            File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
         }
     }
 }
