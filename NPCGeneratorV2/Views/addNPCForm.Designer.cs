@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNPCForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.npcNum = new System.Windows.Forms.TextBox();
-            this.generate = new System.Windows.Forms.Button();
             this.loadPresetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,6 +46,11 @@
             this.loadNPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadBulkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.npcNum = new System.Windows.Forms.TextBox();
+            this.generate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.d100ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,34 +66,6 @@
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 26);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Enter the number of NPCs to be\r\ngenerated (default is 1)";
-            // 
-            // npcNum
-            // 
-            this.npcNum.Location = new System.Drawing.Point(15, 62);
-            this.npcNum.Name = "npcNum";
-            this.npcNum.Size = new System.Drawing.Size(102, 20);
-            this.npcNum.TabIndex = 12;
-            // 
-            // generate
-            // 
-            this.generate.Location = new System.Drawing.Point(15, 88);
-            this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(87, 23);
-            this.generate.TabIndex = 11;
-            this.generate.Text = "Generate NPC";
-            this.generate.UseVisualStyleBackColor = true;
-            this.generate.Click += new System.EventHandler(this.generate_Click);
-            // 
             // loadPresetToolStripMenuItem
             // 
             this.loadPresetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -99,6 +73,7 @@
             this.toolStripSeparator1,
             this.callOfCthuluToolStripMenuItem,
             this.d20ToolStripMenuItem,
+            this.d100ToolStripMenuItem,
             this.dungeonsAndDragonsToolStripMenuItem,
             this.fateToolStripMenuItem,
             this.gurpsToolStripMenuItem,
@@ -215,7 +190,7 @@
             // 
             this.loadOneToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadOneToolStripMenuItem.Image")));
             this.loadOneToolStripMenuItem.Name = "loadOneToolStripMenuItem";
-            this.loadOneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadOneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadOneToolStripMenuItem.Text = "Load One NPC";
             this.loadOneToolStripMenuItem.Click += new System.EventHandler(this.loadOneNPCToolStripMenuItem_Click);
             // 
@@ -223,9 +198,55 @@
             // 
             this.loadBulkToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadBulkToolStripMenuItem.Image")));
             this.loadBulkToolStripMenuItem.Name = "loadBulkToolStripMenuItem";
-            this.loadBulkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadBulkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadBulkToolStripMenuItem.Text = "Load Group";
             this.loadBulkToolStripMenuItem.Click += new System.EventHandler(this.loadGroupToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 26);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Enter the number of NPCs to be\r\ngenerated (default is 1)";
+            // 
+            // npcNum
+            // 
+            this.npcNum.Location = new System.Drawing.Point(15, 62);
+            this.npcNum.Name = "npcNum";
+            this.npcNum.Size = new System.Drawing.Size(102, 20);
+            this.npcNum.TabIndex = 12;
+            // 
+            // generate
+            // 
+            this.generate.Location = new System.Drawing.Point(15, 88);
+            this.generate.Name = "generate";
+            this.generate.Size = new System.Drawing.Size(87, 23);
+            this.generate.TabIndex = 11;
+            this.generate.Text = "Generate NPC";
+            this.generate.UseVisualStyleBackColor = true;
+            this.generate.Click += new System.EventHandler(this.generate_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(132, 179);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "By Ivan Cvetkovic and Milos Andric";
+            // 
+            // d100ToolStripMenuItem
+            // 
+            this.d100ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("d100ToolStripMenuItem.Image")));
+            this.d100ToolStripMenuItem.Name = "d100ToolStripMenuItem";
+            this.d100ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.d100ToolStripMenuItem.Text = "D100";
             // 
             // AddNPCForm
             // 
@@ -234,11 +255,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(319, 201);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.npcNum);
             this.Controls.Add(this.generate);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddNPCForm";
             this.Text = "Add New NPC";
@@ -271,5 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadNPCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadOneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadBulkToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem d100ToolStripMenuItem;
     }
 }

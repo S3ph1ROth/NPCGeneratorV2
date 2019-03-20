@@ -15,6 +15,7 @@ namespace NPCGeneratorV2.Views
     public partial class LoadNPC : TabPage
     {
         public NPC npc;
+        public int i;
 
         public LoadNPC(string info)
         {
@@ -290,6 +291,28 @@ namespace NPCGeneratorV2.Views
             }
 
             File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
+        }
+
+        private void markDead_CheckedChanged(object sender, EventArgs e)
+        {
+            if (markDead.Checked)
+            {
+                Text = "*DEAD* " + Text;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = true;
+                foreach (Control control in Controls)
+                    if (control.Name != markDead.Name && control.GetType() != typeof(Label) && control.GetType() != typeof(Button))
+                        control.Enabled = false;
+            }
+            else
+            {
+                Text = Text.Replace("*DEAD* ", "");
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
+                foreach (Control control in Controls)
+                    if (control.Name != markDead.Name && control.GetType() != typeof(Label) && control.GetType() != typeof(Button))
+                        control.Enabled = true;
+            }
         }
     }
 }

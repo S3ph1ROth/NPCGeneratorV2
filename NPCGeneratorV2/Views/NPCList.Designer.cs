@@ -30,39 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NPCList));
             this.npcTabs = new System.Windows.Forms.TabControl();
-            this.addNPC = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.saveAllNPCsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.npcTabs.SuspendLayout();
+            this.addNPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // npcTabs
             // 
             this.npcTabs.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.npcTabs.Controls.Add(this.addNPC);
             this.npcTabs.Location = new System.Drawing.Point(0, 24);
             this.npcTabs.Margin = new System.Windows.Forms.Padding(0);
             this.npcTabs.Name = "npcTabs";
             this.npcTabs.SelectedIndex = 0;
             this.npcTabs.Size = new System.Drawing.Size(564, 701);
             this.npcTabs.TabIndex = 0;
-            this.npcTabs.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.npcTabs_Selecting);
-            this.npcTabs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.npcTabs_MouseClick);
-            // 
-            // addNPC
-            // 
-            this.addNPC.Location = new System.Drawing.Point(4, 22);
-            this.addNPC.Name = "addNPC";
-            this.addNPC.Size = new System.Drawing.Size(556, 675);
-            this.addNPC.TabIndex = 0;
-            this.addNPC.Text = "Add NPC";
-            this.addNPC.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveAllNPCsToolStripMenuItem});
+            this.saveAllNPCsToolStripMenuItem,
+            this.addNPCToolStripMenuItem,
+            this.removeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(564, 24);
@@ -75,6 +65,20 @@
             this.saveAllNPCsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.saveAllNPCsToolStripMenuItem.Text = "Save All NPCs";
             this.saveAllNPCsToolStripMenuItem.Click += new System.EventHandler(this.saveAllNPCSToolStripMenuItem_Click);
+            // 
+            // addNPCToolStripMenuItem
+            // 
+            this.addNPCToolStripMenuItem.Name = "addNPCToolStripMenuItem";
+            this.addNPCToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.addNPCToolStripMenuItem.Text = "Add NPC";
+            this.addNPCToolStripMenuItem.Click += new System.EventHandler(this.addNPCToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.removeToolStripMenuItem.Text = "Remove Selected NPC";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // NPCList
             // 
@@ -89,7 +93,6 @@
             this.Name = "NPCList";
             this.Text = "NPC List";
             this.Load += new System.EventHandler(this.NPCList_Load);
-            this.npcTabs.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -100,8 +103,9 @@
         #endregion
 
         private System.Windows.Forms.TabControl npcTabs;
-        private System.Windows.Forms.TabPage addNPC;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem saveAllNPCsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNPCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }

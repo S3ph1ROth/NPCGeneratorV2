@@ -37,20 +37,21 @@
             this.loadPresetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.loadNPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadBulkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.callOfCthuluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.d20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dungeonsAndDragonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gurpsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pathfinderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.starWarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starfinderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warhammerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.callOfCthuluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.starWarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.worldOfDarknessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadNPCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadOneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadBulkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.d100ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(130, 162);
+            this.label2.Location = new System.Drawing.Point(132, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 13);
             this.label2.TabIndex = 8;
@@ -102,7 +103,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(317, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(319, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,6 +114,7 @@
             this.toolStripSeparator1,
             this.callOfCthuluToolStripMenuItem,
             this.d20ToolStripMenuItem,
+            this.d100ToolStripMenuItem,
             this.dungeonsAndDragonsToolStripMenuItem,
             this.fateToolStripMenuItem,
             this.gurpsToolStripMenuItem,
@@ -141,43 +143,12 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(194, 6);
             // 
-            // loadNPCToolStripMenuItem
+            // callOfCthuluToolStripMenuItem
             // 
-            this.loadNPCToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loadNPCToolStripMenuItem.BackgroundImage")));
-            this.loadNPCToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.loadNPCToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadOneToolStripMenuItem,
-            this.loadBulkToolStripMenuItem});
-            this.loadNPCToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.loadNPCToolStripMenuItem.Name = "loadNPCToolStripMenuItem";
-            this.loadNPCToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.loadNPCToolStripMenuItem.Text = "Load NPC";
-            this.loadNPCToolStripMenuItem.DropDownClosed += new System.EventHandler(this.loadNPCToolStripMenuItem_DropDownClosed);
-            this.loadNPCToolStripMenuItem.DropDownOpened += new System.EventHandler(this.loadNPCToolStripMenuItem_DropDownOpened);
-            // 
-            // loadOneToolStripMenuItem
-            // 
-            this.loadOneToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadOneToolStripMenuItem.Image")));
-            this.loadOneToolStripMenuItem.Name = "loadOneToolStripMenuItem";
-            this.loadOneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadOneToolStripMenuItem.Text = "Load One NPC";
-            this.loadOneToolStripMenuItem.Click += new System.EventHandler(this.loadOneToolStripMenuItem_Click);
-            // 
-            // loadBulkToolStripMenuItem
-            // 
-            this.loadBulkToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadBulkToolStripMenuItem.Image")));
-            this.loadBulkToolStripMenuItem.Name = "loadBulkToolStripMenuItem";
-            this.loadBulkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadBulkToolStripMenuItem.Text = "Load Group";
-            this.loadBulkToolStripMenuItem.Click += new System.EventHandler(this.loadBulkToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.callOfCthuluToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("callOfCthuluToolStripMenuItem.Image")));
+            this.callOfCthuluToolStripMenuItem.Name = "callOfCthuluToolStripMenuItem";
+            this.callOfCthuluToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.callOfCthuluToolStripMenuItem.Text = "Call of Cthulu";
             // 
             // d20ToolStripMenuItem
             // 
@@ -214,6 +185,13 @@
             this.pathfinderToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.pathfinderToolStripMenuItem.Text = "Pathfinder";
             // 
+            // starWarsToolStripMenuItem
+            // 
+            this.starWarsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("starWarsToolStripMenuItem.Image")));
+            this.starWarsToolStripMenuItem.Name = "starWarsToolStripMenuItem";
+            this.starWarsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.starWarsToolStripMenuItem.Text = "Star Wars";
+            // 
             // starfinderToolStripMenuItem
             // 
             this.starfinderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("starfinderToolStripMenuItem.Image")));
@@ -228,26 +206,57 @@
             this.warhammerToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.warhammerToolStripMenuItem.Text = "Warhammer";
             // 
-            // callOfCthuluToolStripMenuItem
-            // 
-            this.callOfCthuluToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("callOfCthuluToolStripMenuItem.Image")));
-            this.callOfCthuluToolStripMenuItem.Name = "callOfCthuluToolStripMenuItem";
-            this.callOfCthuluToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.callOfCthuluToolStripMenuItem.Text = "Call of Cthulu";
-            // 
-            // starWarsToolStripMenuItem
-            // 
-            this.starWarsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("starWarsToolStripMenuItem.Image")));
-            this.starWarsToolStripMenuItem.Name = "starWarsToolStripMenuItem";
-            this.starWarsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.starWarsToolStripMenuItem.Text = "Star Wars";
-            // 
             // worldOfDarknessToolStripMenuItem
             // 
             this.worldOfDarknessToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("worldOfDarknessToolStripMenuItem.Image")));
             this.worldOfDarknessToolStripMenuItem.Name = "worldOfDarknessToolStripMenuItem";
             this.worldOfDarknessToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.worldOfDarknessToolStripMenuItem.Text = "World of Darkness";
+            // 
+            // loadNPCToolStripMenuItem
+            // 
+            this.loadNPCToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loadNPCToolStripMenuItem.BackgroundImage")));
+            this.loadNPCToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loadNPCToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadOneToolStripMenuItem,
+            this.loadBulkToolStripMenuItem});
+            this.loadNPCToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.loadNPCToolStripMenuItem.Name = "loadNPCToolStripMenuItem";
+            this.loadNPCToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.loadNPCToolStripMenuItem.Text = "Load NPC";
+            this.loadNPCToolStripMenuItem.DropDownClosed += new System.EventHandler(this.loadNPCToolStripMenuItem_DropDownClosed);
+            this.loadNPCToolStripMenuItem.DropDownOpened += new System.EventHandler(this.loadNPCToolStripMenuItem_DropDownOpened);
+            // 
+            // loadOneToolStripMenuItem
+            // 
+            this.loadOneToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadOneToolStripMenuItem.Image")));
+            this.loadOneToolStripMenuItem.Name = "loadOneToolStripMenuItem";
+            this.loadOneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadOneToolStripMenuItem.Text = "Load One NPC";
+            this.loadOneToolStripMenuItem.Click += new System.EventHandler(this.loadOneToolStripMenuItem_Click);
+            // 
+            // loadBulkToolStripMenuItem
+            // 
+            this.loadBulkToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loadBulkToolStripMenuItem.Image")));
+            this.loadBulkToolStripMenuItem.Name = "loadBulkToolStripMenuItem";
+            this.loadBulkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadBulkToolStripMenuItem.Text = "Load Group";
+            this.loadBulkToolStripMenuItem.Click += new System.EventHandler(this.loadBulkToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // d100ToolStripMenuItem
+            // 
+            this.d100ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("d100ToolStripMenuItem.Image")));
+            this.d100ToolStripMenuItem.Name = "d100ToolStripMenuItem";
+            this.d100ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.d100ToolStripMenuItem.Text = "D100";
             // 
             // MainWindow
             // 
@@ -256,7 +265,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(317, 184);
+            this.ClientSize = new System.Drawing.Size(319, 201);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -299,6 +308,7 @@
         private System.Windows.Forms.ToolStripMenuItem callOfCthuluToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem starWarsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem worldOfDarknessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem d100ToolStripMenuItem;
     }
 }
 

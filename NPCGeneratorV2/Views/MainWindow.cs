@@ -23,6 +23,7 @@ namespace NPCGeneratorV2
             InitializeComponent();
             path = "";
             string d20PathCheck = Environment.CurrentDirectory + "\\Presets\\D20";
+            string d100PathCheck = Environment.CurrentDirectory + "\\Presets\\D100";
             string dndPathCheck = Environment.CurrentDirectory + "\\Presets\\DnD";
             string fatePathCheck = Environment.CurrentDirectory + "\\Presets\\FATE RPG";
             string gurpsPathCheck = Environment.CurrentDirectory + "\\Presets\\GURPS";
@@ -42,6 +43,19 @@ namespace NPCGeneratorV2
                     preset.Text = folder[folder.Length - 1];
                     preset.Click += (s, EventArgs) => { pathChange_click(s, EventArgs, folderPath + "\\"); };
                     d20ToolStripMenuItem.DropDownItems.Add(preset);
+                }
+            }
+            catch { }
+            try
+            {
+                List<string> d100Folders = Directory.GetDirectories(d100PathCheck).ToList<string>();
+                foreach (string folderPath in d100Folders)
+                {
+                    string[] folder = folderPath.Split('\\');
+                    ToolStripItem preset = new ToolStripMenuItem();
+                    preset.Text = folder[folder.Length - 1];
+                    preset.Click += (s, EventArgs) => { pathChange_click(s, EventArgs, folderPath + "\\"); };
+                    d100ToolStripMenuItem.DropDownItems.Add(preset);
                 }
             }
             catch { }

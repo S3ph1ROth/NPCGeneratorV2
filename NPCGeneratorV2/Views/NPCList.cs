@@ -44,7 +44,9 @@ namespace NPCGeneratorV2
                 for (int i = 0; i < N; i++)
                 {
                     NPCTab tab = new NPCTab(Path);
+                    
                     npcTabs.TabPages.Insert(i, tab);
+                    tab.i = npcTabs.TabIndex;
                     saveNPCGen.Add(tab);
                 }
                 npcTabs.SelectedIndex = 0;
@@ -52,7 +54,7 @@ namespace NPCGeneratorV2
             else if (bulkLoad == false && FileContent != null)
             {
                 var tab = new LoadNPC(FileContent);
-                npcTabs.TabPages.Insert(npcTabs.TabCount - 1, tab);
+                npcTabs.TabPages.Insert(npcTabs.TabCount, tab);
                 npcTabs.SelectedIndex = 0;
                 saveNPCLoad.Add(tab);
             }
@@ -60,51 +62,11 @@ namespace NPCGeneratorV2
             {
                 foreach(var npc in bulkLoadList)
                 {
-                    npcTabs.TabPages.Insert(npcTabs.TabCount - 1, npc);
+                    npcTabs.TabPages.Insert(npcTabs.TabCount, npc);
                     saveNPCLoad.Add(npc);
                 }
                 npcTabs.SelectedIndex = 0;
             }
-        }
-
-        private void npcTabs_MouseClick(object sender, MouseEventArgs e)
-        {
-            var lastIndex = this.npcTabs.TabCount - 1;
-            if (npcTabs.GetTabRect(lastIndex).Contains(e.Location))
-            {
-                using (AddNPCForm add = new AddNPCForm())
-                {
-                    if (add.ShowDialog() == DialogResult.OK)
-                    {
-                        var tabs = add.tabs;
-                        var load = add.load;
-                        if (load == null)
-                        {
-                            var index = npcTabs.TabCount - 1;
-                            foreach (var npc in tabs)
-                            {
-                                npcTabs.TabPages.Insert(index, npc);
-                                saveNPCGen.Add(npc);
-                            }
-                        }
-                        else
-                        {
-                            foreach (var npc in load)
-                            {
-                                npcTabs.TabPages.Insert(npcTabs.TabCount - 1, npc);
-                                saveNPCLoad.Add(npc);
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
-
-        private void npcTabs_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (e.TabPageIndex == npcTabs.TabCount - 1)
-                e.Cancel = true;
         }
 
         private void saveAllNPCSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +84,46 @@ namespace NPCGeneratorV2
                 {
                     tab.saveAll(selectedPath);
                 }
+            }
+        }
+
+        private void addNPCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AddNPCForm add = new AddNPCForm())
+            {
+                if (add.ShowDialog() == DialogResult.OK)
+                {
+                    var tabs = add.tabs;
+                    var load = add.load;
+                    if (load == null)
+                    {
+                        foreach (var npc in tabs)
+                        {
+                            npcTabs.TabPages.Insert(npcTabs.TabCount, npc);
+                            saveNPCGen.Add(npc);
+                        }
+                    }
+                    else
+                    {
+                        foreach (var npc in load)
+                        {
+                            npcTabs.TabPages.Insert(npcTabs.TabCount, npc);
+                            saveNPCLoad.Add(npc);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (npcTabs.TabCount == 1)
+            {
+                Close();
+            }
+            else
+            {
+                npcTabs.TabPages.Remove(npcTabs.SelectedTab);
             }
         }
     }
