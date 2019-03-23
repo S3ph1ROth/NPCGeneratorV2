@@ -5,16 +5,30 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPCGeneratorV2", "NPCGeneratorV2\NPCGeneratorV2.csproj", "{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "NPCGeneratorV2Installer", "NPCGeneratorV2Installer\NPCGeneratorV2Installer.wixproj", "{4A3F60A4-0D4C-4743-B760-DF547093FDD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Debug|x86.Build.0 = Debug|Any CPU
 		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{B0BEF6DD-DEEA-4858-836D-C331AAAC4FDA}.Release|x86.Build.0 = Release|Any CPU
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Debug|x86.ActiveCfg = Debug|x86
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Debug|x86.Build.0 = Debug|x86
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Release|Any CPU.ActiveCfg = Release|x86
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Release|x86.ActiveCfg = Release|x86
+		{4A3F60A4-0D4C-4743-B760-DF547093FDD0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

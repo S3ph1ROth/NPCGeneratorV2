@@ -59,6 +59,27 @@ namespace NPCGeneratorV2
         private void save_Click(object sender, EventArgs e, NPC npc)
         {
             List<string> info = new List<string>();
+
+            npc.FirstName = firstName.Text;
+            npc.LastName = lastName.Text;
+            npc.Nickname = nickname.Text;
+            npc.Occupation = occupation.Text;
+            npc.Description = description.Text;
+            npc.Armor1 = armor1.Text;
+            npc.Armor1Armor2 = armor1Armor2.Text;
+            npc.Armor1RDmg = armor1RDmg.Text;
+            npc.Armor2 = armor2.Text;
+            npc.Armor2Armor2 = armor2Armor2.Text;
+            npc.Armor2RDmg = armor2RDmg.Text;
+            npc.Weapon1 = weapon1.Text;
+            npc.Weapon1Dmg = weapon1Dmg.Text;
+            npc.Weapon2 = weapon2.Text;
+            npc.Weapon2Dmg = weapon2.Text;
+            npc.WeaponMod = weaponMod.Text;
+            npc.Weapon3Mod1 = weapon3Mod1.Text;
+
+            info.Add("DEAD: " + markDead.Checked + "\r\n");
+
             info.Add("First name: " + npc.FirstName + "\r\n");
             info.Add("Last name: " + npc.LastName + "\r\n");
             info.Add("Nickname: " + npc.Nickname + "\r\n");
@@ -117,7 +138,10 @@ namespace NPCGeneratorV2
                 fd.Filter = "npc files (*.npc)|*.npc";
                 fd.Title = "Save NPC";
                 fd.RestoreDirectory = true;
-                fd.FileName = npc.FirstName + " " + npc.LastName;
+                if (!markDead.Checked)
+                    fd.FileName = npc.FirstName + " " + npc.LastName + ".npc";
+                else
+                    fd.FileName = "DEAD " + npc.FirstName + " " + npc.LastName + ".npc";
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
                     File.WriteAllLines(fd.FileName, info);
@@ -127,6 +151,27 @@ namespace NPCGeneratorV2
         public void saveAll(string path)
         {
             List<string> info = new List<string>();
+
+            npc.FirstName = firstName.Text;
+            npc.LastName = lastName.Text;
+            npc.Nickname = nickname.Text;
+            npc.Occupation = occupation.Text;
+            npc.Description = description.Text;
+            npc.Armor1 = armor1.Text;
+            npc.Armor1Armor2 = armor1Armor2.Text;
+            npc.Armor1RDmg = armor1RDmg.Text;
+            npc.Armor2 = armor2.Text;
+            npc.Armor2Armor2 = armor2Armor2.Text;
+            npc.Armor2RDmg = armor2RDmg.Text;
+            npc.Weapon1 = weapon1.Text;
+            npc.Weapon1Dmg = weapon1Dmg.Text;
+            npc.Weapon2 = weapon2.Text;
+            npc.Weapon2Dmg = weapon2.Text;
+            npc.WeaponMod = weaponMod.Text;
+            npc.Weapon3Mod1 = weapon3Mod1.Text;
+
+            info.Add("DEAD: " + markDead.Checked + "\r\n");
+
             info.Add("First name: " + npc.FirstName + "\r\n");
             info.Add("Last name: " + npc.LastName + "\r\n");
             info.Add("Nickname: " + npc.Nickname + "\r\n");
@@ -180,7 +225,10 @@ namespace NPCGeneratorV2
                 info.Add(line);
             }
 
-            File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
+            if (!markDead.Checked)
+                File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
+            else
+                File.WriteAllLines(path + "\\DEAD " + npc.FirstName + " " + npc.LastName + ".npc", info);
         }
 
         private void markDead_Click(object sender, EventArgs e)
