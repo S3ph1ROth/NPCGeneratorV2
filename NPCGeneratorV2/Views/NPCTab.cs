@@ -79,6 +79,7 @@ namespace NPCGeneratorV2
             npc.Weapon3Mod1 = weapon3Mod1.Text;
 
             info.Add("DEAD: " + markDead.Checked + "\r\n");
+            info.Add("SURRENDERED: " + surrender.Checked + "\r\n");
 
             info.Add("First name: " + npc.FirstName + "\r\n");
             info.Add("Last name: " + npc.LastName + "\r\n");
@@ -138,10 +139,14 @@ namespace NPCGeneratorV2
                 fd.Filter = "npc files (*.npc)|*.npc";
                 fd.Title = "Save NPC";
                 fd.RestoreDirectory = true;
-                if (!markDead.Checked)
-                    fd.FileName = npc.FirstName + " " + npc.LastName + ".npc";
-                else
+
+                if (markDead.Checked)
                     fd.FileName = "DEAD " + npc.FirstName + " " + npc.LastName + ".npc";
+                else if (surrender.Checked)
+                    fd.FileName = "SURRENDERED " + npc.FirstName + " " + npc.LastName + ".npc";
+                else
+                    fd.FileName = npc.FirstName + " " + npc.LastName + ".npc";
+
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
                     File.WriteAllLines(fd.FileName, info);
@@ -171,6 +176,7 @@ namespace NPCGeneratorV2
             npc.Weapon3Mod1 = weapon3Mod1.Text;
 
             info.Add("DEAD: " + markDead.Checked + "\r\n");
+            info.Add("SURRENDERED: " + surrender.Checked + "\r\n");
 
             info.Add("First name: " + npc.FirstName + "\r\n");
             info.Add("Last name: " + npc.LastName + "\r\n");
@@ -225,17 +231,22 @@ namespace NPCGeneratorV2
                 info.Add(line);
             }
 
-            if (!markDead.Checked)
-                File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
-            else
+            if (markDead.Checked)
                 File.WriteAllLines(path + "\\DEAD " + npc.FirstName + " " + npc.LastName + ".npc", info);
+            else if (surrender.Checked)
+                File.WriteAllLines(path + "\\SURRENDERED " + npc.FirstName + " " + npc.LastName + ".npc", info);
+            else
+                File.WriteAllLines(path + "\\" + npc.FirstName + " " + npc.LastName + ".npc", info);
         }
 
         private void markDead_Click(object sender, EventArgs e)
         {
             if (markDead.Checked)
             {
+                surrender.Checked = false;
                 Text = "*DEAD* " + Text;
+                pictureBox2.BackgroundImage = Properties.Resources.DEAD_3;
+                pictureBox3.BackgroundImage = Properties.Resources.KRVCA;
                 pictureBox2.Visible = true;
                 pictureBox3.Visible = true;
                 foreach (Control control in Controls)
@@ -250,6 +261,24 @@ namespace NPCGeneratorV2
                 foreach (Control control in Controls)
                     if (control.Name != markDead.Name && control.GetType() != typeof(Label) && control.GetType() != typeof(Button))
                         control.Enabled = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (surrender.Checked)
+            {
+                Text = "*SURRENDERED* " + Text;
+                pictureBox2.BackgroundImage = Properties.Resources.SURRENDER__3;
+                pictureBox3.BackgroundImage = Properties.Resources.CIKICA_SUR__3;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = true;
+            }
+            else
+            {
+                Text = Text.Replace("*SURRENDERED* ", "");
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
             }
         }
     }

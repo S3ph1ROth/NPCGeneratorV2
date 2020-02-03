@@ -163,9 +163,9 @@ namespace NPCGeneratorV2
                 for (int j = row_min; j < row_max; j++)
                 {
                     var invLine = _inventory[rnd.Next(0, _inventory.Length)];
-                    string inv1 = Regex.Match(invLine, @"([a-zA-Z\(\) ]+)\s(\d+) ?(\d+)").Groups[1].Value;
-                    string inv2 = Regex.Match(invLine, @"([a-zA-Z\(\) ]+)\s(\d+) ?(\d+)").Groups[2].Value;
-                    string inv3 = Regex.Match(invLine, @"([a-zA-Z\(\) ]+)\s(\d+) ?(\d+)").Groups[3].Value;
+                    string inv1 = Regex.Match(invLine, @"([a-zA-Z0-9\(\)\.,;:\[\]{}\+\-\\\/|º ]+)\s\((\d+) ?(\d+)\)").Groups[1].Value;
+                    string inv2 = Regex.Match(invLine, @"([a-zA-Z0-9\(\)\.,;:\[\]{}\+\-\\\/|º ]+)\s\((\d+) ?(\d+)\)").Groups[2].Value;
+                    string inv3 = Regex.Match(invLine, @"([a-zA-Z0-9\(\)\.,;:\[\]{}\+\-\\\/|º ]+)\s\((\d+) ?(\d+)\)").Groups[3].Value;
 
                     if (j == row_min)
                     {

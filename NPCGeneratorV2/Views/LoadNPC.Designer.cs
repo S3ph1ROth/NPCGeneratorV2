@@ -103,11 +103,14 @@
             this.markDead = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.surrender = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label33
@@ -142,7 +145,7 @@
             this.inventory.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.inventory.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.inventory.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.inventory.Size = new System.Drawing.Size(267, 93);
+            this.inventory.Size = new System.Drawing.Size(456, 93);
             this.inventory.TabIndex = 220;
             // 
             // dataGridViewTextBoxColumn2
@@ -178,7 +181,7 @@
             this.attributes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.attributes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.attributes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.attributes.Size = new System.Drawing.Size(228, 141);
+            this.attributes.Size = new System.Drawing.Size(312, 141);
             this.attributes.TabIndex = 219;
             // 
             // description
@@ -783,7 +786,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(235, 88);
+            this.pictureBox2.Location = new System.Drawing.Point(380, 66);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(173, 158);
             this.pictureBox2.TabIndex = 224;
@@ -795,21 +798,52 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(276, 375);
+            this.pictureBox3.Location = new System.Drawing.Point(303, 376);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(254, 198);
             this.pictureBox3.TabIndex = 225;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Visible = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(348, 648);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 18);
+            this.pictureBox4.TabIndex = 227;
+            this.pictureBox4.TabStop = false;
+            // 
+            // surrender
+            // 
+            this.surrender.AutoSize = true;
+            this.surrender.BackColor = System.Drawing.Color.Transparent;
+            this.surrender.ForeColor = System.Drawing.Color.White;
+            this.surrender.Location = new System.Drawing.Point(228, 652);
+            this.surrender.Name = "surrender";
+            this.surrender.Size = new System.Drawing.Size(125, 17);
+            this.surrender.TabIndex = 226;
+            this.surrender.Text = "Mark as Surrendered";
+            this.surrender.UseVisualStyleBackColor = false;
+            this.surrender.CheckedChanged += new System.EventHandler(this.surrender_CheckedChanged);
+            // 
             // LoadNPC
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.label33);
             this.Controls.Add(this.inventory);
-            this.Controls.Add(this.attributes);
             this.Controls.Add(this.description);
+            this.Controls.Add(this.weapon3Mod4);
+            this.Controls.Add(this.weapon3Mod3);
+            this.Controls.Add(this.weapon3Mod2);
+            this.Controls.Add(this.weapon3Mod1);
+            this.Controls.Add(this.weaponMod);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.surrender);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.attributes);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label31);
@@ -826,12 +860,7 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.weapon3Mod4);
-            this.Controls.Add(this.weapon3Mod3);
-            this.Controls.Add(this.weapon3Mod2);
-            this.Controls.Add(this.weapon3Mod1);
             this.Controls.Add(this.save);
-            this.Controls.Add(this.weaponMod);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
@@ -876,12 +905,14 @@
             this.Controls.Add(this.markDead);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
+            this.Name = "LoadNPC";
             this.Size = new System.Drawing.Size(561, 675);
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -963,5 +994,7 @@
         private System.Windows.Forms.CheckBox markDead;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.CheckBox surrender;
     }
 }
