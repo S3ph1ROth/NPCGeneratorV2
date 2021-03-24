@@ -786,7 +786,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(380, 66);
+            this.pictureBox2.Location = new System.Drawing.Point(657, 213);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(173, 158);
             this.pictureBox2.TabIndex = 224;
@@ -905,8 +905,7 @@
             this.Controls.Add(this.markDead);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
-            this.Name = "LoadNPC";
-            this.Size = new System.Drawing.Size(561, 675);
+            this.Size = new System.Drawing.Size(1114, 968);
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

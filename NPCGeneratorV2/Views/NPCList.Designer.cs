@@ -39,12 +39,11 @@
             // 
             // npcTabs
             // 
-            this.npcTabs.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.npcTabs.Location = new System.Drawing.Point(0, 24);
             this.npcTabs.Margin = new System.Windows.Forms.Padding(0);
             this.npcTabs.Name = "npcTabs";
             this.npcTabs.SelectedIndex = 0;
-            this.npcTabs.Size = new System.Drawing.Size(564, 701);
+            this.npcTabs.Size = new System.Drawing.Size(1114, 968);
             this.npcTabs.TabIndex = 0;
             // 
             // menuStrip1
@@ -55,7 +54,7 @@
             this.removeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(564, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1115, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,7 +84,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(564, 722);
+            this.ClientSize = new System.Drawing.Size(1115, 992);
             this.Controls.Add(this.npcTabs);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
